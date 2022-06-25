@@ -1,4 +1,5 @@
 const express = require('express');
+const path = require('path');
 
 const app = express();
 
@@ -7,6 +8,14 @@ const port = process.env.PORT || 3000;
 app.use(express.json());
 
 app.get('/', (req, res) => {
+	res.sendFile(path.join(__dirname + '/index.html'));
+});
+
+app.get('/api', (req, res) => {
+	res.redirect('/');
+});
+
+app.get('/api/whoami', (req, res) => {
 
 	const result = {};
 
@@ -16,5 +25,6 @@ app.get('/', (req, res) => {
 
 	res.json(result)
 });
+
 
 app.listen(port, () => console.log('App working on port ' + port))
