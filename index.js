@@ -2,6 +2,8 @@ const express = require('express');
 
 const app = express();
 
+const port = process.env.PORT || 3000;
+
 app.use(express.json());
 
 app.get('/', (req, res) => {
@@ -15,4 +17,4 @@ app.get('/', (req, res) => {
 	res.json(result)
 });
 
-app.listen(3000, () => console.log('App working on port 3000'))
+app.listen(port, () => console.log('App working on port ' + port))

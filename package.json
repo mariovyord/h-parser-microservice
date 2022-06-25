@@ -4,7 +4,8 @@
 	"description": "",
 	"main": "index.js",
 	"scripts": {
-		"start": "nodemon index.js"
+		"start": "node index.js",
+		"dev": "nodemon index.js"
 	},
 	"keywords": [],
 	"author": "",
@@ -15,5 +16,8 @@
 	"devDependencies": {
 		"eslint": "^8.18.0",
 		"nodemon": "^2.0.18"
+	},
+	"engines": {
+		"node": "16.13.1"
 	}
 }
