@@ -6,6 +6,7 @@ const app = express();
 const port = process.env.PORT || 3000;
 
 app.use(express.json());
+app.set('trust proxy', true);
 
 app.get('/', (req, res) => {
 	res.sendFile(path.join(__dirname + '/index.html'));
@@ -19,7 +20,7 @@ app.get('/api/whoami', (req, res) => {
 
 	const result = {};
 
-	result.ipaddress = req.ip || 'Cannot get IP address';
+	result.ipaddress = req.ip;
 	result.language = req.headers['accept-language'];
 	result.software = req.headers['user-agent'];
 
